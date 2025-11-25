@@ -1,220 +1,181 @@
 📦 E-Commerce Data Analysis Project
 Python • Pandas • NumPy • Data Cleaning • Exploratory Data Analysis
 
-A complete end-to-end data analysis project performed on the Online Retail Dataset, covering data cleaning, preprocessing, feature engineering, grouping, advanced analysis, and report generation.
-This project demonstrates how Python and Pandas can be used to transform raw e-commerce data into meaningful business insights.
+This project performs a complete end-to-end analysis of the Online Retail Dataset, transforming raw e-commerce transaction data into clean, structured insights.
+It demonstrates key skills in data cleaning, feature engineering, aggregation, visualization planning, and business-focused analysis using Python.
 
-🎯 Project Overview
+📊 Overview
 
-The goal of this project is to explore, clean, and analyze the Online Retail dataset, discovering trends in customer purchasing behavior, product performance, revenue patterns, and country-wise sales insights.
+The Online Retail dataset contains invoice-level transaction data with customer purchases, product details, timestamps, and pricing information.
+Using Python and Pandas, this project cleans the data, enriches it with new features, and analyzes it from multiple perspectives—customer behavior, product performance, and country-level trends.
 
-The project is divided into multiple structured parts, each focusing on a key analytical skill:
+Key steps in the workflow include:
 
-Data exploration
+Cleaning missing, invalid, and duplicate data
 
-Data cleaning
+Handling cancelled transactions
 
-Feature extraction
+Creating new analytical features
 
-Text processing
+Filtering and summarizing sales
 
-Filtering and selection
+Customer, product, and time-based insights
 
-Aggregation and grouping
+Integrating synthetic customer and product category data
 
-Country, customer, product, and time-series analysis
+Generating documented insights
 
-External data integration
+✨ Features Implemented
+🧹 Data Cleaning
 
-NumPy operations
+Removed missing CustomerIDs
 
-Exporting summaries and documentation
+Dropped duplicate rows
 
-This project provides a hands-on understanding of real-world data preprocessing and analytical workflows.
+Removed cancelled invoices (InvoiceNo starting with “C”)
 
-✨ Key Features
-🧹 Data Cleaning Pipeline
+Removed invalid Quantity and UnitPrice values
 
-Removed missing IDs, duplicates, and invalid rows
+Standardized product names and country values
 
-Standardized product names and countries
-
-Normalized price and quantity columns
-
-Converted date fields for time-series analysis
+Converted InvoiceDate to proper datetime format
 
 🏷 Feature Engineering
 
-Created several derived columns such as:
+Added several useful analytical columns:
 
-TotalPrice
+TotalPrice (Quantity × UnitPrice)
 
-Year, Month, Day, Hour
+Year, Month, Day, Hour (from InvoiceDate)
 
-DayOfWeek & Quarter
+DayOfWeek and Quarter
 
-RevenueCategory & OrderSize
+RevenueCategory (Low / Medium / High based on TotalPrice)
 
-Product name length
+OrderSize (Small / Medium / Large based on Quantity)
 
-Monthly revenue percentage
+Length of Product Name
 
-Customer revenue rank
+Percentage of Monthly Revenue
 
-Cumulative revenue
+Customer Spending Rank
 
-🔍 Exploratory Data Analysis
+Cumulative Revenue
 
-Performed detailed analysis including:
+🔍 Exploratory Insights
 
-Country-wise revenue
+Analysis covers:
 
-Monthly and quarterly trends
+Country-wise and monthly revenue trends
 
-Top customers & top products
+Top customers by spending
 
-Order patterns by quantity, hour, and day
+Most purchased and highest-revenue products
 
-Popular categories per country
+Popular categories in each country
 
-Category revenue distribution
+High-value transactions and outliers
 
-📚 Text-Based Insights
+Daily and hourly sales patterns
 
-Generated a separate insights text file summarizing findings from the dataset.
+Year-over-year comparison
 
 🔗 External Data Integration
 
-Created synthetic Customer Information dataset
+Synthetic datasets were created to enrich analysis:
 
-Created Product Category dataset
+Customer Information Dataset
 
-Merged with sales data for enhanced analysis
+CustomerID
+
+CustomerName
+
+MembershipLevel
+
+JoinDate
+
+Product Categories Dataset
+
+StockCode
+
+Category
+
+Both datasets were merged with the main sales data to derive deeper insights such as revenue by membership level and category popularity across countries.
 
 🧮 NumPy Operations
 
-Implemented array-based:
+Implemented practical NumPy tasks including:
 
-Mathematical operations
+Array creation and mathematical operations
 
-Statistical computations
+Statistical analysis (percentiles, correlation, summary statistics)
 
-Matrix creation
+Normalization & filtering
 
-Filtering and normalization
+Generating random arrays and matrices
 
-Percentile, correlation, and splitting tasks
+📁 Export & Reporting
 
-🚀 Getting Started
-✅ Prerequisites
+Cleaned dataset exported to CSV and Excel
 
-Python 3.8+
+Multi-sheet Excel report created (country summary, monthly revenue, top customers)
 
-Jupyter Notebook or VS Code
+Generated a text-based insight report summarizing findings
 
-Required Libraries:
+🔧 Technologies Used
 
-pip install pandas numpy openpyxl
+Python
 
-📂 Running the Project
+Pandas
 
-Load the dataset
+NumPy
 
-Run the notebook section-by-section
+OpenPyXL (Excel export)
 
-Follow Parts A to S
+Jupyter Notebook / VS Code
 
-View outputs and summaries
+📖 Key Pandas & NumPy Functions Demonstrated
+Category	Functions
+Data Cleaning	dropna(), drop_duplicates(), replace(), astype()
+Date Handling	.dt.year, .dt.month, .dt.day, .dt.weekday, .dt.hour
+Feature Creation	cut(), where(), string operations
+Grouping	groupby(), agg(), nunique(), size()
+Sorting	sort_values(), nlargest(), nsmallest()
+Text	str.contains(), str.startswith(), str.upper(), str.strip()
+NumPy	array(), linspace(), percentile(), sqrt(), random.choice()
+📈 Sample Insights
 
-Export final results to CSV, Excel, and TXT
+UK is the highest-revenue country by a large margin.
 
-📁 Project Structure
+A small number of customers contribute significantly to total revenue.
+
+Certain product categories (Home, Kitchen, Gift, Stationery, etc.) dominate sales.
+
+Sales peak during specific months with visible seasonal patterns.
+
+Weekday vs weekend sales show clear behavioral differences.
+
+High-value transactions are rare but heavily influence revenue trends.
+
+📂 Project Structure
 ecommerce-analysis/
 │
-├── data/                         # Original and cleaned datasets
-├── analysis_notebook.ipynb       # Main project notebook
-├── customer_info.csv             # Synthetic customer data
-├── product_categories.csv        # Synthetic product categories
-├── sales_insights.txt            # Insights summary
-└── README.md                     # Project documentation
-
-📖 Learning Objectives
-
-By completing this project, you will learn how to:
-
-Clean and preprocess large datasets
-
-Perform exploratory analysis using Pandas
-
-Engineer meaningful features
-
-Aggregate, group, and summarize business data
-
-Build country-wise, monthly, and customer-level reports
-
-Combine multiple datasets using merge and join
-
-Use NumPy for mathematical and statistical tasks
-
-Export files in CSV, Excel, and TXT formats
-
-Document insights professionally
-
-🔧 Key Pandas & NumPy Functions Demonstrated
-Category	Functions Used
-Data Cleaning	dropna(), drop_duplicates(), replace(), astype(), rename()
-Feature Creation	dt.year, dt.month, cut(), where(), assign()
-Aggregation	groupby(), agg(), nunique(), size(), idxmax()
-Sorting	sort_values(), nlargest(), nsmallest()
-Text Processing	str.upper(), str.strip(), str.contains(), str.startswith()
-NumPy	array(), linspace(), sqrt(), percentile(), reshape(), random.choice()
-📊 Sample Insights
-
-The UK generates the highest revenue among all countries
-
-Some product categories dominate sales across multiple regions
-
-A few customers contribute significantly to overall revenue
-
-Seasonal patterns and monthly variations impact sales volume
-
-High-revenue transactions are rare but impactful
-
-🎓 Use Cases
-
-This project is ideal for:
-
-Data analytics learning
-
-E-commerce business intelligence
-
-Interview preparation
-
-Pandas & NumPy skill-building
-
-Portfolio projects
-
-🤝 Contributing
-
-You can contribute by:
-
-Adding new visualizations
-
-Improving customer/product analytics
-
-Expanding NumPy practice modules
-
-Enhancing dashboards or summaries
+├── cleaned_data/                # Final cleaned dataset
+├── customer_info.csv            # Synthetic customer dataset
+├── product_categories.csv       # Synthetic category dataset
+├── sales_insights.txt           # Insight summary
+├── analysis_notebook.ipynb      # Full Jupyter Notebook
+└── README.md                    # Project documentation
 
 👩‍💻 Author
 
 P P Shree Lakshmi
 📧 Email: shreelakshmipp@gmail.com
 
-🌐 LinkedIn: www.linkedin.com/in/shree-lakshmi-b9a769239
+🌐 LinkedIn: https://www.linkedin.com/in/shree-lakshmi-b9a769239
 
 💻 GitHub: https://github.com/shreelakshmi2003
 
-⭐ If you found this project useful, give it a star on GitHub!
+⭐ If you found this project helpful, consider starring the repository!
 
-Happy Analyzing! 📊
+Happy Analyzing! 📊✨
